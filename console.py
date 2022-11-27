@@ -7,11 +7,12 @@ import shlex
 import sys
 import models
 from models.base_model import BaseModel
+from models.user import User
 
 
 class HBNBCommand(cmd.Cmd):
     """class HBNBCommand"""
-    classes = ['BaseModel']
+    classes = ['BaseModel', 'User']
     methods = ['all', 'show', 'update', 'destroy']
     prompt = '(hbnb) '
 
