@@ -151,7 +151,6 @@ class HBNBCommand(cmd.Cmd):
                 if "User" in str(key):
                     count += 1
             print(count)
-        elif agrs[1] == "show"
 
 
 if __name__ == '__main__':
