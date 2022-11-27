@@ -13,6 +13,7 @@ from models.state import State
 from models.city import City
 from models.amenity import Amenity
 from models.review import Review
+from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
@@ -105,7 +106,7 @@ class HBNBCommand(cmd.Cmd):
                 print(obj_list)
         else:
             for obj in objs.values():
-                obj_list.append(ovj.__str__())
+                obj_list.append(obj.__str__())
             print(obj_list)
 
     def do_update(self, line):
@@ -138,6 +139,19 @@ class HBNBCommand(cmd.Cmd):
                     obj.save()
             except KeyError:
                 print("no instance found")
+
+    def do_User(self, line):
+        """Retrieve all instances of a class"""
+        args = line.split(".")
+        if args[1] == "all()":
+            self.do_all("User")
+        elif args[1] == "count()":
+            count = 0
+            for key in storage.all():
+                if "User" in str(key):
+                    count += 1
+            print(count)
+        elif agrs[1] == "show"
 
 
 if __name__ == '__main__':
